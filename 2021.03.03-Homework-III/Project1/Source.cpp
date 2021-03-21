@@ -17,11 +17,11 @@ int main()
 {
 	string str;
 	int index = 0;
-	fstream fin;
-	fstream fout;
-	fout.open("out.txt");
-	fin.open("in.txt");
+	ifstream fin("in.txt");
+	ofstream fout("out.txt");
 	fin >> str;
+	cout << str;
+	fout << str;
 	if (isReal(str, index))
 	{
 		fout << '=)';
@@ -84,15 +84,12 @@ bool isExp(string str, int& index)
 
 bool isNatural(string str, int& index)
 {
+	cout << str[index];
 	if (!isDigit(str[index]))
 	{
 		return false;
 	}
-	++index;
-	while (isDigit(str[index]))
-	{
-		++index;
-	}
+	while (isDigit(str[++index]));
 	return true;
 }
 
