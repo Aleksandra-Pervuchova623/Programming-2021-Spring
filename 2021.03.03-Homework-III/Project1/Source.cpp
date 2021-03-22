@@ -15,23 +15,22 @@ bool isReal(string str, int& index);
 
 int main()
 {
-	string str;
-	int index = 0;
 	ifstream fin("in.txt");
-	ofstream fout("out.txt");
-	fin >> str;
-	cout << str;
-	fout << str;
-	if (isReal(str, index))
+	while (!fin.eof())
 	{
-		fout << '=)';
+		string str;
+		int index = 0;
+		fin >> str;
+		cout << str << endl;
+		if (isReal(str, index))
+		{
+			cout << "=)" << endl;
+		}
+		else
+		{
+			cout << '+(' << endl;
+		}
 	}
-	else
-	{
-		fout << '=(';
-	}
-
-	fout.close();
 	fin.close();
 	return 0;
 }
@@ -84,7 +83,6 @@ bool isExp(string str, int& index)
 
 bool isNatural(string str, int& index)
 {
-	cout << str[index];
 	if (!isDigit(str[index]))
 	{
 		return false;
@@ -95,7 +93,7 @@ bool isNatural(string str, int& index)
 
 bool isDigit(char c)
 {
-	return c <= '9' || c >= '0';
+	return c >= '0' && c <= '9';
 }
 
 bool isDot(string str, int& index)
