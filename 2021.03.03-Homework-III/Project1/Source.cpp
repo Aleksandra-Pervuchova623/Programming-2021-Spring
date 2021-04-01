@@ -28,7 +28,7 @@ int main()
 		}
 		else
 		{
-			cout << '+(' << endl;
+			cout << "=(" << endl;
 		}
 	}
 	fin.close();
