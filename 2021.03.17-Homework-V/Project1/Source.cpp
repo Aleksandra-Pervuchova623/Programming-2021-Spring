@@ -6,6 +6,7 @@ void quickSort(int* a, int st, int end);
 void swap(int& a, int& b);
 void merger(int* a, int* b, int* c, int len1, int len2);
 
+
 int main()
 {
 	int len1 = 10;
